@@ -1,6 +1,6 @@
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue';
 
+export default function useStarsAnimation() {
 const canvas = ref(null);
 let ctx;
 let animationFrameId;
@@ -117,8 +117,9 @@ const tick = () => {
     animationFrameId = requestAnimationFrame(tick);
 }
 
-</script>
+  return {
+    canvas,
+    tick  // you can return anything else you may need
+  };
+}
 
-<template>
-    <canvas class="fixed top-0 left-0 w-full h-screen bg-[#232323]" ref="canvas"></canvas>
-</template>
